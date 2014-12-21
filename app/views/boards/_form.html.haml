@@ -1,0 +1,10 @@
+= simple_form_for(@board) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :content
+  .form-actions
+    = button_tag(type: :submit, class: 'btn btn-primary') do
+      = fa_icon 'save'
+      掲示板を作成する

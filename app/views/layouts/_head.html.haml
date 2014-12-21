@@ -1,0 +1,6 @@
+%meta{name: 'viewport', content: 'width=device-width, initial-scale=1.0'}
+%title= content_for?(:title) ? yield(:title) : 'MAIL-BOARD'
+%meta{name: 'description', content: "#{content_for?(:description) ? yield(:description) : 'Heroku Advent Calendar 2014 用のサンプルアプリケーションです'}"}
+= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+= javascript_include_tag 'application', 'data-turbolinks-track' => true
+= csrf_meta_tags

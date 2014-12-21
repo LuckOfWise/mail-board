@@ -1,0 +1,19 @@
+%h1.page-header
+  掲示板一覧
+  = fa_icon 'table'
+  = link_to new_board_path, class: 'pull-right btn btn-primary btn-sm' do
+    = fa_icon 'pencil'
+    新しい掲示板を作成する
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th タイトル
+      %th 作成者
+      %th 作成日時
+  %tbody
+    - @boards.each do |board|
+      %tr
+        %td= link_to board.title, board
+        %td= board.user.try(:name) || '(削除ユーザー)'
+        %td=l board.created_at

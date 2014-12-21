@@ -1,0 +1,22 @@
+%h1.page-header
+  = @board.title
+  = fa_icon 'comment'
+
+  - if @board.user == current_user
+    = link_to @board, method: :delete, data: {confirm: '削除します。よろしいですか？'}, class: 'btn btn-danger btn-sm pull-right' do
+      = fa_icon 'trash'
+      この掲示板を削除する
+.board__content
+  = simple_format @board.content
+
+
+.board__comments
+  %h2.board__comments-title
+    #{@board.title}へのコメント
+    = fa_icon 'comments'
+  = render @board.comments.order(:created_at)
+  = render 'comments/form', board: @board
+
+= link_to boards_path, class: 'btn btn-default' do
+  = fa_icon 'angle-left'
+  一覧へ戻る

@@ -1,0 +1,10 @@
+- @comment ||= board.comments.build
+= simple_form_for([board, @comment]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :content, label: false
+  .form-actions
+    = button_tag(type: :submit, class: 'btn btn-primary') do
+      = fa_icon 'comment'
+      コメントする

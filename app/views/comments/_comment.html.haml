@@ -1,0 +1,9 @@
+.comment
+  %small.comment__user-name
+    = comment.user.try(:name) || '(削除ユーザー)'
+  %small.comment__created-at
+    = l comment.created_at
+  - if comment.user == current_user
+    = link_to '☓', [comment.board, comment], method: :delete, data: {confirm: 'コメントを削除します。よろしいですか？'}
+  .comment__content
+    = simple_format comment.content

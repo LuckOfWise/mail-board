@@ -1,0 +1,9 @@
+%h1.page-header
+  掲示板作成
+  = fa_icon 'pencil'
+
+= render 'form'
+
+= link_to boards_path, class: 'btn btn-default' do
+  = fa_icon 'angle-left'
+  一覧へ戻る
