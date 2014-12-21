@@ -4,35 +4,18 @@
   "logo": "https://avatars3.githubusercontent.com/u/788200",
   "repository": "https://github.com/RailsApps/none",
   "keywords": [
-    "Rails Composer",
     "RailsApps",
     "starter",
     "Bootstrap",
-    "authentication",
     "Devise",
     "Ruby",
     "Rails"
   ],
   "scripts": {"postdeploy": "bundle exec rake db:migrate; bundle exec rake db:seed"},
   "env": {
-    "MANDRILL_USERNAME": {
-      "description": "Your Mandrill address for sending mail.",
-      "value": "user@example.com",
-      "required": false
-    },
-    "MANDRILL_APIKEY": {
-      "description": "Your Mandrill API key for sending mail.",
-      "value": "changeme",
-      "required": false
-    },
-    "ADMIN_EMAIL": {
-      "description": "The administrator's email address for signing in.",
-      "value": "user@example.com",
-      "required": true
-    },
-    "ADMIN_PASSWORD": {
-      "description": "The administrator's password for signing in.",
-      "value": "changeme",
+    "MAIL_DOMAIN_NAME": {
+      "description": "メーラー用のドメイン.",
+      "value": "mail.example.com",
       "required": true
     },
     "DOMAIN_NAME": {
@@ -41,5 +24,9 @@
       "required": false
     },
     "RAILS_ENV": "production"
-  }
+  },
+  "addons": [
+    "heroku-postgresql:hobby-dev",
+    "mandrill"
+  ]
 }
