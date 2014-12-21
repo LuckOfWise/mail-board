@@ -11,7 +11,6 @@ class Board < ActiveRecord::Base
   end
 
   def self.save_inbound_mail!(event_payload)
-    user = User.find_by!(email: event_payload.sender_email)
-    user.boards.create!(title: event_payload.subject, content: event_payload.message_body(:text))
+    event_payload.user.boards.create!(title: event_payload.subject, content: event_payload.message_body(:text))
   end
 end

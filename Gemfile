@@ -24,6 +24,7 @@ gem 'bootstrap-growl-rails'
 
 gem 'mandrill-rails'
 gem 'uuidtools'
+gem 'nokogiri'
 
 group :development do
   gem 'better_errors'
