@@ -5,6 +5,11 @@ class Board < ActiveRecord::Base
   validates :title, presence: true
   validates :content, presence: true
 
+  before_create :generate_token
+  def generate_token
+    self.token = UUIDTools::UUID.random_create.to_s
+  end
+
   def self.save_inbound_mail!(event_payload)
     user = User.find_by!(email: event_payload.sender_email)
     user.boards.create!(title: event_payload.subject, content: event_payload.message_body(:text))

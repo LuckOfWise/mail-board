@@ -23,6 +23,7 @@ gem 'font-awesome-rails'
 gem 'bootstrap-growl-rails'
 
 gem 'mandrill-rails'
+gem 'uuidtools'
 
 group :development do
   gem 'better_errors'

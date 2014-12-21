@@ -1,4 +1,4 @@
-class InboxController < ApplicationController
+class Inbox::BoardsController < ApplicationController
   include Mandrill::Rails::WebHookProcessor
 
   skip_before_action :authenticate_user!
