@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
     @comment = @board.comments.build(comment_params)
     @comment.user = current_user
     if @comment.save
+      UserMailer.comment_created(@comment).deliver! unless @comment.user == @comment.board.user
       redirect_to @board, notice: 'コメントしました。'
     else
       render 'boards/show'

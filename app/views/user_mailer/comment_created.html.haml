@@ -1,0 +1,8 @@
+%p 「#{@comment.board.title}」にコメントがつきました。
+
+%div{style: 'border: 1px dashed gray; padding: 0 10px; margin-bottom: 20px;'}
+  %p #{@comment.user.name} #{l @comment.created_at}
+
+  = simple_format(@comment.content)
+
+= link_to board_url(@comment.board), board_url(@comment.board)
